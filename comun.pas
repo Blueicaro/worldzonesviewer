@@ -5,7 +5,12 @@ unit comun;
 interface
 
 const
-  NewProjectName: string = 'New proyect';
+  NewProjectNameText: string = 'New proyect';
+  RobotsNode : string = 'Robots';
+  WorldZonesNodeText : string = 'WorldZones';
+  BoxZonesText : string = 'Box zones';
+  CylinderZonesText : string = 'Cylinder zone';
+  EsphereZonesText: string = 'Esphere zone';
 
 implementation
 

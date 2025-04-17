@@ -1,22 +1,25 @@
 object BoxPointsForm: TBoxPointsForm
   Left = 471
-  Height = 266
+  Height = 332
   Top = 250
-  Width = 427
+  Width = 393
   BorderStyle = bsDialog
   Caption = 'BoxPointsForm'
-  ClientHeight = 266
-  ClientWidth = 427
+  ClientHeight = 332
+  ClientWidth = 393
+  DesignTimePPI = 120
   Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object ButtonPanel1: TButtonPanel
-    Left = 6
-    Height = 34
-    Top = 226
-    Width = 415
+    Left = 8
+    Height = 38
+    Top = 286
+    Width = 377
+    BorderSpacing.Around = 8
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
+    OKButton.Enabled = False
     OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
@@ -29,35 +32,35 @@ object BoxPointsForm: TBoxPointsForm
   end
   object panelname: TPanel
     Left = 0
-    Height = 50
+    Height = 62
     Top = 0
-    Width = 427
+    Width = 393
     Align = alTop
-    ClientHeight = 50
-    ClientWidth = 427
+    ClientHeight = 62
+    ClientWidth = 393
     TabOrder = 1
     object editName: TEdit
-      Left = 48
-      Height = 23
-      Top = 16
-      Width = 360
+      Left = 60
+      Height = 28
+      Top = 20
+      Width = 308
       Anchors = [akTop, akLeft, akRight]
       TabOrder = 0
       OnChange = editNameChange
     end
     object labelname: TLabel
-      Left = 8
-      Height = 15
-      Top = 16
-      Width = 32
+      Left = 10
+      Height = 20
+      Top = 20
+      Width = 40
       Caption = 'Name'
     end
   end
   object PanelPuntos: TPanel
     Left = 0
-    Height = 170
-    Top = 50
-    Width = 427
+    Height = 216
+    Top = 62
+    Width = 393
     Align = alClient
     TabOrder = 2
   end

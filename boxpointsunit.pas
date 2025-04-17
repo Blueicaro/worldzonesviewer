@@ -98,6 +98,7 @@ procedure TBoxPointsForm.SetEditMode(AValue: boolean);
 begin
   if editName.Enabled = AValue then Exit;
   editName.Enabled := Enabled;
+
 end;
 
 procedure TBoxPointsForm.SetNameOfVolumen(AValue: string);
@@ -108,7 +109,7 @@ end;
 
 procedure TBoxPointsForm.SetPoint1(AValue: TVector3);
 begin
-  FPoint1 := AValue;
+  FPoint1 := AValue ;
 end;
 
 procedure TBoxPointsForm.SetPoint12(AValue: TVector3);

@@ -5,7 +5,7 @@ unit volumenes;
 interface
 
 uses
-  Classes, SysUtils, CastleVectors, CastleScene;
+  Classes, SysUtils, fgl, CastleVectors, CastleScene, CastleTransform;
 
 type
 
@@ -27,6 +27,23 @@ type
     constructor Create(AOwner: TComponent; aName: string; Point1: TVector3;
       Point2: TVector3); overload;
   end;
+
+type
+
+  { TBoxBehavior }
+
+  TBoxBehavior = class(TCastleBehavior)
+  private
+    FBoxName: string;
+    procedure SetBoxName(AValue: string);
+  public
+    property BoxName: string read FBoxName write SetBoxName;
+  end;
+
+
+
+type
+  TBoxList = specialize TFPGObjectList<Tbox>;
 
 
 
@@ -60,6 +77,14 @@ begin
   Self.Translation := (FP2 - FP1);
   Self.Size := (FP2 - FP1) / 2;
   FName := aName;
+end;
+
+{ TBoxBehavior }
+
+procedure TBoxBehavior.SetBoxName(AValue: string);
+begin
+  if FBoxName = AValue then Exit;
+  FBoxName := AValue;
 end;
 
 end.

@@ -112,6 +112,7 @@
         <Filename Value="main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="mainForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
@@ -133,6 +134,7 @@
         <Filename Value="projectstree.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProjectsTreeFrame"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="ProjectsTree"/>
       </Unit>

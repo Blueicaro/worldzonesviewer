@@ -5,7 +5,7 @@ unit ProjectsTree;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, ComCtrls;
+  Classes, SysUtils, Forms, Controls, ComCtrls, volumenes;
 
 type
 
@@ -17,6 +17,7 @@ type
 
   public
     constructor Create(TheOwner: TComponent); override;
+    procedure AddBoxZone(aBoxZone: Tbox);
   end;
 
 implementation
@@ -27,9 +28,32 @@ uses comun;
   { TProjectsTreeFrame }
 
 constructor TProjectsTreeFrame.Create(TheOwner: TComponent);
+var
+  root, WorldZonesNode: TTreeNode;
 begin
   inherited Create(TheOwner);
-  Tree.Items.Add(nil,NewProjectName);
+  root := Tree.Items.Add(nil, NewProjectNameText);
+
+  Tree.Items.AddChild(root, RobotsNode);
+
+  WorldZonesNode := Tree.Items.AddChild(root, WorldZonesNodeText);
+
+  Tree.Items.AddChild(WorldZonesNode, CylinderZonesText);
+  Tree.Items.AddChild(WorldZonesNode, EsphereZonesText);
+  Tree.Items.AddChild(WorldZonesNode, BoxZonesText);
+
+  Tree.FullExpand;
+
+end;
+
+procedure TProjectsTreeFrame.AddBoxZone(aBoxZone: Tbox);
+var
+  Node: TTreeNode;
+begin
+  Node := Tree.Items.FindNodeWithText(BoxZonesText);
+  { #note : Poner un aviso? }
+  if Node = nil then exit;
+  Tree.Items.AddChild(node,aBoxZone.Name);
 end;
 
 end.
