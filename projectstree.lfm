@@ -1,0 +1,19 @@
+object ProjectsTreeFrame: TProjectsTreeFrame
+  Left = 0
+  Height = 240
+  Top = 0
+  Width = 320
+  ClientHeight = 240
+  ClientWidth = 320
+  TabOrder = 0
+  DesignLeft = 471
+  DesignTop = 27
+  object Tree: TTreeView
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    TabOrder = 0
+  end
+end

@@ -1,0 +1,42 @@
+object Frame1: TFrame1
+  Left = 0
+  Height = 73
+  Top = 0
+  Width = 265
+  ClientHeight = 73
+  ClientWidth = 265
+  TabOrder = 0
+  DesignLeft = 471
+  DesignTop = 27
+  object spEditX: TSpinEdit
+    Left = 16
+    Height = 23
+    Top = 32
+    Width = 80
+    Color = clRed
+    TabOrder = 0
+  end
+  object spEditY: TSpinEdit
+    Left = 96
+    Height = 23
+    Top = 32
+    Width = 80
+    Color = clGreen
+    TabOrder = 1
+  end
+  object spEditZ: TSpinEdit
+    Left = 176
+    Height = 23
+    Top = 32
+    Width = 80
+    Color = clSkyBlue
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 15
+    Top = 8
+    Width = 121
+    Caption = 'Posicion in X,Y,Z (mm)'
+  end
+end
