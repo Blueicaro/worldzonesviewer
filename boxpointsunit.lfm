@@ -9,6 +9,7 @@ object BoxPointsForm: TBoxPointsForm
   ClientWidth = 393
   DesignTimePPI = 120
   Position = poMainFormCenter
+  LCLVersion = '4.0.0.3'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object ButtonPanel1: TButtonPanel

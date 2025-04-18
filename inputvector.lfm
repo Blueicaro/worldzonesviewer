@@ -2,16 +2,16 @@ object inputvectorframe: Tinputvectorframe
   Left = 0
   Height = 65
   Top = 0
-  Width = 320
+  Width = 376
   ClientHeight = 65
-  ClientWidth = 320
+  ClientWidth = 376
   DesignTimePPI = 120
   ParentFont = False
   TabOrder = 0
   DesignLeft = 471
   DesignTop = 27
   object spEditX: TSpinEdit
-    Left = 10
+    Left = 56
     Height = 28
     Top = 20
     Width = 100
@@ -19,7 +19,7 @@ object inputvectorframe: Tinputvectorframe
     TabOrder = 0
   end
   object spEditY: TSpinEdit
-    Left = 110
+    Left = 160
     Height = 28
     Top = 20
     Width = 100
@@ -27,7 +27,7 @@ object inputvectorframe: Tinputvectorframe
     TabOrder = 1
   end
   object spEditZ: TSpinEdit
-    Left = 210
+    Left = 264
     Height = 28
     Top = 20
     Width = 100
@@ -35,11 +35,18 @@ object inputvectorframe: Tinputvectorframe
     TabOrder = 2
   end
   object LabelInfo: TLabel
-    Left = 20
+    Left = 64
     Height = 20
     Top = 0
     Width = 146
     Caption = 'Posicion in X,Y,Z (mm)'
     OnClick = LabelInfoClick
+  end
+  object LabelPointName: TLabel
+    Left = 16
+    Height = 20
+    Top = 24
+    Width = 16
+    Caption = 'P1'
   end
 end

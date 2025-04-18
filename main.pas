@@ -15,9 +15,11 @@ type
 
   TmainForm = class(TForm)
     Button1: TButton;
+    Button2: TButton;
     CastleControl1: TCastleControl;
     Panel1: TPanel;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -35,7 +37,7 @@ var
 
 implementation
 
-uses ProjectsTree, BoxPointsUnit;
+uses ProjectsTree, BoxPointsUnit,espherapoints;
 
 var
   TreeFrame1: TProjectsTreeFrame;
@@ -105,6 +107,19 @@ begin
     FreeAndNil(F);
   end;
 
+end;
+
+procedure TmainForm.Button2Click(Sender: TObject);
+var
+  F: TEspheraForm;
+begin
+   F := TEspheraForm.Create(Self);
+   try
+     F.EsphereName:='Mi Esfera';
+     F.ShowModal;
+   finally
+     FreeAndNil(F);
+   end;
 end;
 
 end.

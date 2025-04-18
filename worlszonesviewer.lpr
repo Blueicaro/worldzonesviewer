@@ -10,7 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, comun, castle_components, volumenes, inputvector, ProjectsTree;
+  Forms, main, comun, castle_components, volumenes, inputvector, ProjectsTree,
+  BoxPointsUnit, espherapoints, worldzonename, singlevalue, lazcontrols;
 
 {$R *.res}
 

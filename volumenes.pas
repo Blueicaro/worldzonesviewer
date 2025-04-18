@@ -40,7 +40,9 @@ type
     property BoxName: string read FBoxName write SetBoxName;
   end;
 
+   Type TEsphere = Class
 
+   end;
 
 type
   TBoxList = specialize TFPGObjectList<Tbox>;

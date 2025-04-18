@@ -97,6 +97,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="LazControls"/>
+      </Item>
+      <Item>
+        <PackageName Value="LazControlDsgn"/>
+      </Item>
+      <Item>
         <PackageName Value="castle_components"/>
       </Item>
       <Item>
@@ -137,6 +143,34 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
         <UnitName Value="ProjectsTree"/>
+      </Unit>
+      <Unit>
+        <Filename Value="boxpointsunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="BoxPointsForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="BoxPointsUnit"/>
+      </Unit>
+      <Unit>
+        <Filename Value="espherapoints.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EspheraForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="worldzonename.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="worldzonenameframe"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+      </Unit>
+      <Unit>
+        <Filename Value="singlevalue.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="singlevalueframe"/>
+        <ResourceBaseClass Value="Frame"/>
       </Unit>
     </Units>
   </ProjectOptions>

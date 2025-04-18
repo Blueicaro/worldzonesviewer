@@ -1,0 +1,53 @@
+object EspheraForm: TEspheraForm
+  Left = 406
+  Height = 185
+  Top = 32
+  Width = 534
+  Caption = 'EsphereForm'
+  ClientHeight = 185
+  ClientWidth = 534
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  object PanelCenterPoints: TPanel
+    Left = 0
+    Height = 68
+    Top = 63
+    Width = 368
+    Align = alClient
+    TabOrder = 0
+  end
+  object PanelRadiusValue: TPanel
+    Left = 368
+    Height = 68
+    Top = 63
+    Width = 166
+    Align = alRight
+    TabOrder = 1
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 8
+    Height = 38
+    Top = 139
+    Width = 518
+    BorderSpacing.Around = 8
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+    ShowButtons = [pbOK, pbCancel]
+  end
+  object PanelName: TPanel
+    Left = 0
+    Height = 63
+    Top = 0
+    Width = 534
+    Align = alTop
+    TabOrder = 3
+  end
+end

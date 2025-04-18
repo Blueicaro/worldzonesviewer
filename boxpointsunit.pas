@@ -54,16 +54,17 @@ procedure TBoxPointsForm.FormCreate(Sender: TObject);
 begin
   P1 := Tinputvectorframe.Create(nil);
   P1.Parent := PanelPuntos;
+  P1.PointNumber:=1;
   P1.Align := alTop;
 
   P2 := Tinputvectorframe.Create(nil);
   P2.Parent := PanelPuntos;
   P2.Align := alClient;
+  P2.PointNumber:=2;
   //P2.Top := P1.Height;
  // PanelPuntos.ClientHeight:=P1.Height+P2.Height+5;
-
   //Self.ClientWidth := P1.Width;
-  //Self.ClientHeight := P2.Height * 2 + ButtonPanel1.Height+panelname.Height;
+  Self.ClientHeight := panelname.Height+PanelPuntos.Height;
 end;
 
 procedure TBoxPointsForm.editNameChange(Sender: TObject);

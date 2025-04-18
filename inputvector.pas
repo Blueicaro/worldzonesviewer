@@ -12,19 +12,23 @@ type
   { Tinputvectorframe }
 
   Tinputvectorframe = class(TFrame)
+    LabelPointName: TLabel;
     LabelInfo: TLabel;
     spEditX: TSpinEdit;
     spEditY: TSpinEdit;
     spEditZ: TSpinEdit;
     procedure LabelInfoClick(Sender: TObject);
   private
+    FPointNumber: integer;
+    procedure SetPointNumber(AValue: integer);
   public
     procedure HideInfo;
     procedure IniciarValores;
     procedure SetValues(aValues: TVector3);
     function GetValues: TVector3;
-    constructor Create(TheOwner: TComponent); override;
 
+    constructor Create(TheOwner: TComponent); override;
+    property PointNumber: integer read FPointNumber write SetPointNumber;
   end;
 
 implementation
@@ -38,9 +42,16 @@ begin
   LabelInfo.Visible := False;
 end;
 
+procedure Tinputvectorframe.SetPointNumber(AValue: integer);
+begin
+  if FPointNumber = AValue then Exit;
+  FPointNumber := AValue;
+  LabelPointName.Caption := 'P'+IntToStr(FPointNumber);
+end;
+
 procedure Tinputvectorframe.HideInfo;
 begin
-  LabelInfo.Visible:=False;
+  LabelInfo.Visible := False;
 end;
 
 procedure Tinputvectorframe.IniciarValores;
