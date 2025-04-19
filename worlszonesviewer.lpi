@@ -170,6 +170,7 @@
         <Filename Value="singlevalue.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="singlevalueframe"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
       </Unit>
     </Units>

@@ -52,10 +52,15 @@
             "Perspective" : {
               "$$ClassName" : "TCastlePerspective"
             },
+            "RotationPersistent" : {
+              "$$ClassName" : "TCastleVector4RotationPersistent",
+              "W" : 4.1241770982742310E-001,
+              "X" : -1.0000028610229492E+000
+            },
             "TranslationPersistent" : {
               "$$ClassName" : "TCastleVector3Persistent",
-              "Y" : 2.0000000000000000E+000,
-              "Z" : 4.0000000000000000E+000
+              "Y" : 1.5325301885604858E+000,
+              "Z" : 2.9315195083618164E+000
             }
           },
           {
@@ -73,11 +78,17 @@
             "Name" : "Plane1",
             "RenderOptions" : {
               "$$ClassName" : "TCastleScene.TSceneRenderOptions"
-            },
-            "SizePersistent" : {
-              "$$ClassName" : "TCastleVector2Persistent",
-              "X" : 1.0000000000000000E+001,
-              "Y" : 1.0000000000000000E+001
+            }
+          },
+          {
+            "$$ClassName" : "TCastleTransform",
+            "Name" : "world",
+            "RotationPersistent" : {
+              "$$ClassName" : "TCastleVector4RotationPersistent",
+              "W" : 3.1413483619689941E+000,
+              "X" : -1.2211065040901303E-004,
+              "Y" : 7.0710676908493042E-001,
+              "Z" : 7.0710676908493042E-001
             }
           }
         ]
@@ -113,9 +124,9 @@
         },
         "TranslationPersistent" : {
           "$$ClassName" : "TCastleVector3Persistent",
-          "X" : 7.7023463249206543E+000,
-          "Y" : 3.3161113262176514E+000,
-          "Z" : 8.0032939910888672E+000
+          "X" : 7.5920825004577637E+000,
+          "Y" : 3.2750644683837891E+000,
+          "Z" : 7.9015364646911621E+000
         }
       },
       "InternalDesignNavigations[dnFly]" : {
