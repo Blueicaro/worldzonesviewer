@@ -1,28 +1,27 @@
 object worldzonenameframe: Tworldzonenameframe
   Left = 0
-  Height = 41
+  Height = 33
   Top = 0
-  Width = 318
-  ClientHeight = 41
-  ClientWidth = 318
-  DesignTimePPI = 120
+  Width = 439
+  ClientHeight = 33
+  ClientWidth = 439
   ParentFont = False
   TabOrder = 0
   DesignLeft = 406
   DesignTop = 32
   object EditName: TEdit
-    Left = 80
-    Height = 28
-    Top = 8
-    Width = 216
+    Left = 64
+    Height = 23
+    Top = 6
+    Width = 360
     Anchors = [akTop, akLeft, akRight]
     TabOrder = 0
   end
   object LabelName: TLabel
-    Left = 24
-    Height = 20
-    Top = 8
-    Width = 40
+    Left = 19
+    Height = 15
+    Top = 6
+    Width = 32
     Caption = 'Name'
   end
 end

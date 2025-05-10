@@ -1,27 +1,26 @@
 object singlevalueframe: Tsinglevalueframe
   Left = 0
-  Height = 71
+  Height = 57
   Top = 0
-  Width = 185
-  ClientHeight = 71
-  ClientWidth = 185
-  DesignTimePPI = 120
+  Width = 148
+  ClientHeight = 57
+  ClientWidth = 148
   ParentFont = False
   TabOrder = 0
   DesignLeft = 406
   DesignTop = 32
   object LabelName: TLabel
-    Left = 24
-    Height = 20
+    Left = 19
+    Height = 15
     Top = 0
-    Width = 112
+    Width = 88
     Caption = 'LabelValueName'
   end
   object SpinEdit1: TSpinEdit
-    Left = 24
-    Height = 28
-    Top = 24
-    Width = 120
+    Left = 19
+    Height = 23
+    Top = 19
+    Width = 96
     Color = clRed
     TabOrder = 0
   end

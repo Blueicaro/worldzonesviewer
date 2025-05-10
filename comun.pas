@@ -3,7 +3,7 @@ unit comun;
 {$mode ObjFPC}{$H+}
 
 interface
-
+  uses CastleVectors;
 const
   NewProjectNameText: string = 'New proyect';
   RobotsNode : string = 'Robots';

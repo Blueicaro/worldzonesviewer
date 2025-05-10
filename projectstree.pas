@@ -18,6 +18,7 @@ type
   public
     constructor Create(TheOwner: TComponent); override;
     procedure AddBoxZone(aBoxZone: Tbox);
+    procedure AddSphereZone(aSphereZone:TSphere);
   end;
 
 implementation
@@ -54,6 +55,15 @@ begin
   { #note : Poner un aviso? }
   if Node = nil then exit;
   Tree.Items.AddChild(node,aBoxZone.Name);
+end;
+
+procedure TProjectsTreeFrame.AddSphereZone(aSphereZone: TSphere);
+var
+  Node: TTreeNode;
+begin
+  Node := Tree.Items.FindNodeWithText(EsphereZonesText);
+  if Node = nil then exit;
+  Tree.Items.Add(Node,aSphereZone.Name);
 end;
 
 end.

@@ -1,53 +1,53 @@
-object EspheraForm: TEspheraForm
+object SphereForm: TSphereForm
   Left = 406
-  Height = 185
+  Height = 148
   Top = 32
-  Width = 534
-  Caption = 'EsphereForm'
-  ClientHeight = 185
-  ClientWidth = 534
-  DesignTimePPI = 120
+  Width = 427
+  Caption = 'SphereForm'
+  ClientHeight = 148
+  ClientWidth = 427
+  Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object PanelCenterPoints: TPanel
     Left = 0
-    Height = 68
-    Top = 63
-    Width = 368
+    Height = 52
+    Top = 50
+    Width = 294
     Align = alClient
     TabOrder = 0
   end
   object PanelRadiusValue: TPanel
-    Left = 368
-    Height = 68
-    Top = 63
-    Width = 166
+    Left = 294
+    Height = 52
+    Top = 50
+    Width = 133
     Align = alRight
     TabOrder = 1
   end
+  object PanelName: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 427
+    Align = alTop
+    TabOrder = 2
+  end
   object ButtonPanel1: TButtonPanel
-    Left = 8
-    Height = 38
-    Top = 139
-    Width = 518
-    BorderSpacing.Around = 8
+    Left = 6
+    Height = 34
+    Top = 108
+    Width = 415
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
     CloseButton.Name = 'CloseButton'
     CloseButton.DefaultCaption = True
     CancelButton.Name = 'CancelButton'
     CancelButton.DefaultCaption = True
-    TabOrder = 2
-    ShowButtons = [pbOK, pbCancel]
-  end
-  object PanelName: TPanel
-    Left = 0
-    Height = 63
-    Top = 0
-    Width = 534
-    Align = alTop
     TabOrder = 3
+    ShowButtons = [pbOK, pbCancel]
   end
 end

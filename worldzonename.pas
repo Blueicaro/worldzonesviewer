@@ -17,12 +17,19 @@ type
   private
 
   public
-
+    destructor Destroy; override;
   end;
 
 implementation
 
 {$R *.lfm}
+
+{ Tworldzonenameframe }
+
+destructor Tworldzonenameframe.Destroy;
+begin
+  inherited Destroy;
+end;
 
 end.
 

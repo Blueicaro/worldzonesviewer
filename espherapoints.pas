@@ -5,28 +5,37 @@ unit espherapoints;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ButtonPanel;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls,
+  ButtonPanel, StdCtrls, CastleVectors;
 
 type
 
   { TEspheraForm }
 
-  TEspheraForm = class(TForm)
+  { TSphereForm }
+
+  TSphereForm = class(TForm)
     ButtonPanel1: TButtonPanel;
     PanelCenterPoints: TPanel;
     PanelRadiusValue: TPanel;
     PanelName: TPanel;
+    procedure OKButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
+    FCenterSphere: TVector3;
     FEsphereName: string;
+    FRadius: single;
     procedure SetEsphereName(AValue: string);
   public
     property EsphereName: string read FEsphereName write SetEsphereName;
+    property CenterSphere: TVector3 read FCenterSphere;
+    property Radius: single read FRadius;
+
   end;
 
 var
-  EspheraForm: TEspheraForm;
+  SphereForm: TSphereForm;
 
 implementation
 
@@ -40,7 +49,16 @@ var
   InputVectorFrame: Tinputvectorframe;
   SingleValueFrame: Tsinglevalueframe;
 
-procedure TEspheraForm.FormCreate(Sender: TObject);
+  { TSphereForm }
+
+procedure TSphereForm.OKButtonClick(Sender: TObject);
+begin
+  EsphereName := WorldZoneNameFrame.EditName.Text;
+  FCenterSphere := InputVectorFrame.GetValues;
+  FRadius := SingleValueFrame.Value;
+end;
+
+procedure TSphereForm.FormCreate(Sender: TObject);
 begin
   WorldZoneNameFrame := Tworldzonenameframe.Create(nil);
   WorldZoneNameFrame.Parent := PanelName;
@@ -51,22 +69,22 @@ begin
 
   SingleValueFrame := Tsinglevalueframe.Create(nil);
   SingleValueFrame.Parent := PanelRadiusValue;
- // SingleValueFrame.Align:=alClient;
-  SingleValueFrame.NameValue:= 'Radius';
-
+  SingleValueFrame.NameValue := 'Radius';
 end;
 
-procedure TEspheraForm.FormDestroy(Sender: TObject);
+procedure TSphereForm.FormDestroy(Sender: TObject);
 begin
-  FreeAndNil(WorldZoneNameFrame);
   FreeAndNil(InputVectorFrame);
+  FreeAndNil(SingleValueFrame);
+  FreeAndNil(WorldZoneNameFrame);
 end;
 
-procedure TEspheraForm.SetEsphereName(AValue: string);
+procedure TSphereForm.SetEsphereName(AValue: string);
 begin
   if FEsphereName = AValue then Exit;
   FEsphereName := AValue;
   WorldZoneNameFrame.EditName.Text := AValue;
 end;
+
 
 end.

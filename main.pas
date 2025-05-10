@@ -6,28 +6,33 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  volumenes, CastleControl, CastleViewport, CastleScene, CastleUIControls,
-  CastleVectors, CastleTransform;
+  ActnList, volumenes, CastleControl, CastleViewport, CastleScene,
+  CastleUIControls, CastleVectors, CastleTransform;
 
 type
 
   { TmainForm }
 
   TmainForm = class(TForm)
+    acCreateCylinder: TAction;
+    ActionList1: TActionList;
     Button1: TButton;
     Button2: TButton;
+    Button3: TButton;
     CastleControl1: TCastleControl;
     Panel1: TPanel;
+    procedure acCreateCylinderExecute(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
     View: TCastleView;
     ViewPort: TCastleViewport;
-    BoxList: TBoxList;
     World: TCastleTransform; //Origen
     procedure AddBoxToScene(aBox: Tbox);
+    procedure AddSphereToScene(aSphere: TSphere);
   public
 
   end;
@@ -38,7 +43,7 @@ var
 
 implementation
 
-uses ProjectsTree, BoxPointsUnit, espherapoints;
+uses ProjectsTree, BoxPointsUnit, espherapoints,cylinderpoints;
 
 var
   TreeFrame1: TProjectsTreeFrame;
@@ -60,31 +65,50 @@ begin
 
   World := View.DesignedComponent('world') as TCastleTransform;
   //Crear listas
-  BoxList := TBoxList.Create();
 end;
 
 procedure TmainForm.FormDestroy(Sender: TObject);
 begin
-  FreeAndNil(BoxList);
+
 end;
 
 procedure TmainForm.AddBoxToScene(aBox: Tbox);
 var
-  Trans, Size: TVector3;
+  Size, Diagonal: TVector3;
   CastleBox: TCastleBox;
   Behavior: TBoxBehavior;
 begin
-  Trans := aBox.P2 - aBox.P1;
-  Size := Vector3(Trans.X / 2, Trans.Y / 2, Trans.Z / 2);
+  Diagonal := aBox.P2 - aBox.P1;
+  Diagonal := Diagonal / 2;
+  Size := aBox.P2 - aBox.P1;
 
   CastleBox := TCastleBox.Create(Self);
   CastleBox.Size := Size;
-  CastleBox.Color:=Vector4(0.4,0.5,1,0.18);
+  CastleBox.Color := Vector4(0.4, 0.5, 1, 0.18);
+
   Behavior := TBoxBehavior.Create(CastleBox);
   Behavior.BoxName := aBox.Name;
+
   CastleBox.AddBehavior(Behavior);
   World.Add(CastleBox);
-  CastleBox.Translation := Trans;
+  CastleBox.Translation := CastleBox.Translation + Diagonal;
+end;
+
+procedure TmainForm.AddSphereToScene(aSphere: TSphere);
+var
+  CastleSphere: TCastleSphere;
+  Behaivor: TSphereBehavior;
+begin
+  CastleSphere := TCastleSphere.Create(Self);
+  CastleSphere.Color := Vector4(0.4, 0.5, 1, 0.18);
+  CastleSphere.Radius := aSphere.Radius;;
+
+  Behaivor := TSphereBehavior.Create(CastleSphere);
+  Behaivor.SphereName := aSphere.Name;
+  CastleSphere.AddBehavior(Behaivor);
+
+  World.Add(CastleSphere);
+  CastleSphere.Translation := aSphere.Center;
 end;
 
 procedure TmainForm.Button1Click(Sender: TObject);
@@ -103,8 +127,7 @@ begin
         TreeFrame1.AddBoxZone(Box);
       end;
       AddBoxToScene(Box);
-      BoxList.Add(Box);
-
+      FreeAndNil(Box);
     end;
   finally
     FreeAndNil(F);
@@ -112,17 +135,44 @@ begin
 
 end;
 
-procedure TmainForm.Button2Click(Sender: TObject);
+procedure TmainForm.acCreateCylinderExecute(Sender: TObject);
 var
-  F: TEspheraForm;
+  F: TCylinderPointsFrm;
 begin
-  F := TEspheraForm.Create(Self);
+  F := TCylinderPointsFrm.Create(Self);
   try
-    F.EsphereName := 'Mi Esfera';
     F.ShowModal;
   finally
     FreeAndNil(F);
   end;
+end;
+
+procedure TmainForm.Button2Click(Sender: TObject);
+var
+  F: TSphereForm;
+  Sphere: TSphere;
+begin
+  F := TSphereForm.Create(Self);
+  try
+   // F.EsphereName := 'Mi Esfera';
+    if F.ShowModal = mrOk then
+    begin
+      Sphere := TSphere.Create(Self, F.EsphereName, F.CenterSphere, F.Radius);
+      if Assigned(TreeFrame1) then
+      begin
+         TreeFrame1.AddSphereZone(Sphere);
+      end;
+      AddSphereToScene(Sphere);
+      FreeAndNil(Sphere);
+    end;
+  finally
+    FreeAndNil(F);
+  end;
+end;
+
+procedure TmainForm.Button3Click(Sender: TObject);
+begin
+
 end;
 
 end.

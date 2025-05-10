@@ -155,7 +155,7 @@
       <Unit>
         <Filename Value="espherapoints.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="EspheraForm"/>
+        <ComponentName Value="SphereForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
@@ -172,6 +172,12 @@
         <ComponentName Value="singlevalueframe"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cylinderpoints.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CylinderPointsFrm"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
   </ProjectOptions>
