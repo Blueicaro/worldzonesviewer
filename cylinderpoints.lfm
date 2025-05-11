@@ -16,6 +16,7 @@ object CylinderPointsFrm: TCylinderPointsFrm
     Width = 308
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True
     CloseButton.Name = 'CloseButton'

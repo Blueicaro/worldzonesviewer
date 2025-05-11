@@ -7,6 +7,7 @@ object mainForm: TmainForm
   ClientHeight = 442
   ClientWidth = 763
   Position = poDesktopCenter
+  LCLVersion = '4.0.0.4'
   WindowState = wsMaximized
   OnCreate = FormCreate
   OnDestroy = FormDestroy

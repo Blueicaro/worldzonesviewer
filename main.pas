@@ -33,6 +33,8 @@ type
     World: TCastleTransform; //Origen
     procedure AddBoxToScene(aBox: Tbox);
     procedure AddSphereToScene(aSphere: TSphere);
+    procedure AddCylinderToScene(aName: string; aCenter: TVector3;
+      aRadius: single; aHeight: single);
   public
 
   end;
@@ -43,7 +45,7 @@ var
 
 implementation
 
-uses ProjectsTree, BoxPointsUnit, espherapoints,cylinderpoints;
+uses ProjectsTree, BoxPointsUnit, espherapoints, cylinderpoints,CastleUtils;
 
 var
   TreeFrame1: TProjectsTreeFrame;
@@ -101,7 +103,8 @@ var
 begin
   CastleSphere := TCastleSphere.Create(Self);
   CastleSphere.Color := Vector4(0.4, 0.5, 1, 0.18);
-  CastleSphere.Radius := aSphere.Radius;;
+  CastleSphere.Radius := aSphere.Radius;
+  ;
 
   Behaivor := TSphereBehavior.Create(CastleSphere);
   Behaivor.SphereName := aSphere.Name;
@@ -109,6 +112,27 @@ begin
 
   World.Add(CastleSphere);
   CastleSphere.Translation := aSphere.Center;
+end;
+
+procedure TmainForm.AddCylinderToScene(aName: string; aCenter: TVector3;
+  aRadius: single; aHeight: single);
+var
+  CastleCylinder: TCastleCylinder;
+  Behaivor: TCylinderBehaivor;
+begin
+  CastleCylinder := TCastleCylinder.Create(Self);
+  CastleCylinder.Color := Vector4(0.4, 0.5, 1, 0.18);
+  CastleCylinder.Radius := aRadius/1000;
+  CastleCylinder.Height := aHeight/1000;
+  Behaivor := TCylinderBehaivor.Create(CastleCylinder);
+  Behaivor.WorldZoneName := aName;
+  World.Add(CastleCylinder);
+
+  //Rotaion to put Z up
+  CastleCylinder.Rotation:=Vector4(1,0,0,Deg(90));
+  CastleCylinder.Translation := (aCenter/1000);
+
+
 end;
 
 procedure TmainForm.Button1Click(Sender: TObject);
@@ -141,7 +165,13 @@ var
 begin
   F := TCylinderPointsFrm.Create(Self);
   try
-    F.ShowModal;
+    if F.ShowModal = mrOk then
+    begin
+      with F do
+      begin
+        AddCylinderToScene(WorldZoneName, Center, Radius, Height);
+      end;
+    end;
   finally
     FreeAndNil(F);
   end;
@@ -154,13 +184,13 @@ var
 begin
   F := TSphereForm.Create(Self);
   try
-   // F.EsphereName := 'Mi Esfera';
+    // F.EsphereName := 'Mi Esfera';
     if F.ShowModal = mrOk then
     begin
       Sphere := TSphere.Create(Self, F.EsphereName, F.CenterSphere, F.Radius);
       if Assigned(TreeFrame1) then
       begin
-         TreeFrame1.AddSphereZone(Sphere);
+        TreeFrame1.AddSphereZone(Sphere);
       end;
       AddSphereToScene(Sphere);
       FreeAndNil(Sphere);

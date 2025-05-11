@@ -20,10 +20,18 @@ type
     PanelName: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure OKButtonClick(Sender: TObject);
   private
+    FCenter: TVector3;
+    FHeight: Single;
+    FRadius: Single;
+    FWorldZoneName: string;
 
   public
-
+     property WorldZoneName:string read FWorldZoneName;
+     property Center:TVector3 read FCenter;
+     property Height : Single read FHeight;
+     property Radius: Single read FRadius;
   end;
 
 var
@@ -39,7 +47,7 @@ uses worldzonename, inputvector, singlevalue;
 var
   WorldZonesFrame: Tworldzonenameframe;
   InputVectorFrame: Tinputvectorframe;
-  HeighFrame: Tsinglevalueframe;
+  HeightFrame: Tsinglevalueframe;
   RadiusFrame: Tsinglevalueframe;
 
   { TCylinderPointsFrm }
@@ -54,20 +62,30 @@ begin
   InputVectorFrame.Parent := PanelCenter;
   InputVectorFrame.Align := alClient;
 
-  HeighFrame := Tsinglevalueframe.Create(PanelHeight);
-  HeighFrame.Parent := PanelHeight;
-  HeighFrame.Align := alClient;
+  HeightFrame := Tsinglevalueframe.Create(PanelHeight);
+  HeightFrame.Parent := PanelHeight;
+  HeightFrame.Align := alClient;
+  HeightFrame.NameValue:='Height';
 
   RadiusFrame := Tsinglevalueframe.Create(PanelRadius);
   RadiusFrame.Parent:=PanelRadius;
   RadiusFrame.Align:=alClient;
+  RadiusFrame.NameValue:='Radius';
 
 
 end;
 
 procedure TCylinderPointsFrm.FormDestroy(Sender: TObject);
 begin
-  //FreeAndNil(WorldZonesFrame);
+
+end;
+
+procedure TCylinderPointsFrm.OKButtonClick(Sender: TObject);
+begin
+    FWorldZoneName:=WorldZonesFrame.ZoneName;
+    FCenter:=InputVectorFrame.GetValues;
+    FHeight:=HeightFrame.Value;
+    FRadius:=RadiusFrame.Value;
 end;
 
 end.

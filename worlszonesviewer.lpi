@@ -177,6 +177,7 @@
         <Filename Value="cylinderpoints.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="CylinderPointsFrm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>

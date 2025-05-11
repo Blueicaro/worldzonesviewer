@@ -96,7 +96,17 @@ type
   public
     constructor Create(AOwner: TComponent; aName: string; aCenter: TVector3;
       aRadius: single; aHeight: single); overload;
+  end;
 
+type
+
+  { TCylinderBehaivor }
+
+  TCylinderBehaivor = class(TCastleBehavior)
+  private
+    FWorldZoneName: string;
+  public
+    property WorldZoneName: string read FWorldZoneName write FWorldZoneName;
   end;
 
 type
@@ -186,8 +196,9 @@ constructor TCylinder.Create(AOwner: TComponent; aName: string;
   aCenter: TVector3; aRadius: single; aHeight: single);
 begin
   inherited Create(AOwner);
-  FCenter:=;
+  // FCenter:=;
 end;
+
 
 { TBoxBehavior }
 
