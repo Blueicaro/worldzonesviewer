@@ -5,7 +5,7 @@ unit ProjectsTree;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, ComCtrls, volumenes;
+  Classes, SysUtils, Forms, Controls, ComCtrls;
 
 type
 
@@ -17,8 +17,8 @@ type
 
   public
     constructor Create(TheOwner: TComponent); override;
-    procedure AddBoxZone(aBoxZone: Tbox);
-    procedure AddSphereZone(aSphereZone:TSphere);
+    procedure AddBoxZone(aBoxZoneName: String);
+    procedure AddSphereZone(aSphereZoneName:String);
   end;
 
 implementation
@@ -47,23 +47,23 @@ begin
 
 end;
 
-procedure TProjectsTreeFrame.AddBoxZone(aBoxZone: Tbox);
+procedure TProjectsTreeFrame.AddBoxZone(aBoxZoneName: String);
 var
   Node: TTreeNode;
 begin
   Node := Tree.Items.FindNodeWithText(BoxZonesText);
   { #note : Poner un aviso? }
   if Node = nil then exit;
-  Tree.Items.AddChild(node,aBoxZone.Name);
+  Tree.Items.AddChild(node,aBoxZoneName);
 end;
 
-procedure TProjectsTreeFrame.AddSphereZone(aSphereZone: TSphere);
+procedure TProjectsTreeFrame.AddSphereZone(aSphereZoneName: String);
 var
   Node: TTreeNode;
 begin
   Node := Tree.Items.FindNodeWithText(EsphereZonesText);
   if Node = nil then exit;
-  Tree.Items.Add(Node,aSphereZone.Name);
+  Tree.Items.Add(Node,aSphereZoneName);
 end;
 
 end.

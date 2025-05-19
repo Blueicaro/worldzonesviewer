@@ -1,10 +1,11 @@
 object ProjectsTreeFrame: TProjectsTreeFrame
   Left = 0
-  Height = 240
+  Height = 300
   Top = 0
-  Width = 320
-  ClientHeight = 240
-  ClientWidth = 320
+  Width = 400
+  ClientHeight = 300
+  ClientWidth = 400
+  DesignTimePPI = 120
   ParentFont = False
   TabOrder = 0
   DesignLeft = 471

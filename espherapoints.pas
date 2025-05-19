@@ -26,6 +26,7 @@ type
     FCenterSphere: TVector3;
     FEsphereName: string;
     FRadius: single;
+    procedure OnChangeWorldZoneName(Sender: TObject);
     procedure SetEsphereName(AValue: string);
   public
     property EsphereName: string read FEsphereName write SetEsphereName;
@@ -62,6 +63,7 @@ procedure TSphereForm.FormCreate(Sender: TObject);
 begin
   WorldZoneNameFrame := Tworldzonenameframe.Create(nil);
   WorldZoneNameFrame.Parent := PanelName;
+  WorldZoneNameFrame.EditName.OnChange := @OnChangeWorldZoneName;
 
   InputVectorFrame := Tinputvectorframe.Create(nil);
   PanelCenterPoints.Width := InputVectorFrame.Width;
@@ -84,6 +86,14 @@ begin
   if FEsphereName = AValue then Exit;
   FEsphereName := AValue;
   WorldZoneNameFrame.EditName.Text := AValue;
+end;
+
+procedure TSphereForm.OnChangeWorldZoneName(Sender: TObject);
+begin
+  with Sender as TEdit do
+  begin
+    ButtonPanel1.OKButton.Enabled:=Text<>'';
+  end;
 end;
 
 

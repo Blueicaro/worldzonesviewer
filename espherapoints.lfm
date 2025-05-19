@@ -1,45 +1,48 @@
 object SphereForm: TSphereForm
   Left = 406
-  Height = 148
+  Height = 185
   Top = 32
-  Width = 427
+  Width = 534
   Caption = 'SphereForm'
-  ClientHeight = 148
-  ClientWidth = 427
+  ClientHeight = 185
+  ClientWidth = 534
+  DesignTimePPI = 120
   Position = poMainFormCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   object PanelCenterPoints: TPanel
     Left = 0
-    Height = 52
-    Top = 50
-    Width = 294
+    Height = 69
+    Top = 62
+    Width = 368
     Align = alClient
     TabOrder = 0
   end
   object PanelRadiusValue: TPanel
-    Left = 294
-    Height = 52
-    Top = 50
-    Width = 133
+    Left = 368
+    Height = 69
+    Top = 62
+    Width = 166
     Align = alRight
     TabOrder = 1
   end
   object PanelName: TPanel
     Left = 0
-    Height = 50
+    Height = 62
     Top = 0
-    Width = 427
+    Width = 534
     Align = alTop
     TabOrder = 2
   end
   object ButtonPanel1: TButtonPanel
-    Left = 6
-    Height = 34
-    Top = 108
-    Width = 415
+    Left = 8
+    Height = 38
+    Top = 139
+    Width = 518
+    BorderSpacing.Around = 8
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
+    OKButton.Enabled = False
     OKButton.OnClick = OKButtonClick
     HelpButton.Name = 'HelpButton'
     HelpButton.DefaultCaption = True

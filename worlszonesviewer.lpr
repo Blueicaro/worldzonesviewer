@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, main, comun, castle_components, volumenes, inputvector, ProjectsTree,
   BoxPointsUnit, espherapoints, worldzonename, singlevalue, lazcontrols, 
-cylinderpoints;
+cylinderpoints, downloadabb;
 
 {$R *.res}
 
