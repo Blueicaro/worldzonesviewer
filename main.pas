@@ -60,7 +60,7 @@ var
 implementation
 
 uses ProjectsTree, BoxPointsUnit, espherapoints, cylinderpoints,
-  CastleUtils,CastleUriUtils, downloadabb;
+  CastleUtils, CastleUriUtils, downloadabb;
 
 var
   TreeFrame1: TProjectsTreeFrame;
@@ -78,8 +78,6 @@ begin
   View.DesignUrl := 'castle-data:/gameviewmain.castle-user-interface';
   CastleControl1.Container.View := View;
   ViewPort := View.DesignedComponent('ViewPort1') as TCastleViewport;
-
-
   World := View.DesignedComponent('world') as TCastleTransform;
   //Crear listas
 end;
@@ -205,10 +203,10 @@ var
 begin
   Robot := TCastleScene.Create(Self);
   s := GetCurrentDir;
-  s := s+PathDelim + 'data' + PathDelim + 'IRB6700_300_270__04.glf';
+  s := s + PathDelim + 'data' + PathDelim + 'IRB6700_300_270__04.gltf';
   path := FilenameToUriSafe(s);
-  World.Add(Robot);
-   Robot.Url:=path;
+  ViewPort.items.Add(Robot);
+  Robot.Url := path;
 end;
 
 procedure TmainForm.acCrearCuboExecute(Sender: TObject);

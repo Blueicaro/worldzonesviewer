@@ -14,9 +14,9 @@ object mainForm: TmainForm
   OnDestroy = FormDestroy
   object CastleControl1: TCastleControl
     Left = 0
-    Height = 490
-    Top = 62
-    Width = 954
+    Height = 392
+    Top = 50
+    Width = 763
     Align = alClient
     Options = []
     TabOrder = 0
@@ -25,11 +25,11 @@ object mainForm: TmainForm
     Left = 0
     Height = 50
     Top = 0
-    Width = 954
+    Width = 763
     Align = alTop
     Caption = 'Panel1'
     ClientHeight = 50
-    ClientWidth = 954
+    ClientWidth = 763
     TabOrder = 1
     object Button1: TButton
       Left = 6
