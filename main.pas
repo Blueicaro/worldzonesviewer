@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   ActnList, Menus, volumenes, CastleControl, CastleViewport, CastleScene,
-  CastleUIControls, CastleVectors, CastleTransform;
+  X3DNodes, CastleUIControls, CastleVectors, CastleTransform;
 
 type
 
@@ -60,7 +60,7 @@ var
 implementation
 
 uses ProjectsTree, BoxPointsUnit, espherapoints, cylinderpoints,
-  CastleUtils, downloadabb;
+  CastleUtils,CastleUriUtils, downloadabb;
 
 var
   TreeFrame1: TProjectsTreeFrame;
@@ -201,15 +201,14 @@ end;
 procedure TmainForm.Button1Click(Sender: TObject);
 var
   Robot: TCastleScene;
-  s: string;
+  s, path: string;
 begin
   Robot := TCastleScene.Create(Self);
-
   s := GetCurrentDir;
-  s := PathDelim + 'data' + PathDelim + 'IRB6700_300_270__04.glf';
-  //s := UriToFilenameSafe(s);
-  Robot.Load('castle-data:/IRB6700_300_270__04.glf');
+  s := s+PathDelim + 'data' + PathDelim + 'IRB6700_300_270__04.glf';
+  path := FilenameToUriSafe(s);
   World.Add(Robot);
+   Robot.Url:=path;
 end;
 
 procedure TmainForm.acCrearCuboExecute(Sender: TObject);
